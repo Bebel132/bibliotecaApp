@@ -1,0 +1,225 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+:root {
+    --cor-1: #292ccc;
+    --cor-2: #1d1f99;
+    --cor-3: #b11d1d;
+    --cor-4: #000000;
+    --cor-5: #ffffff;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-y: hidden;
+}
+
+a {
+    color: var(--cor-5);
+    text-decoration: none;
+}
+
+/* MENU */
+
+.menu-xContainer {
+    z-index: 2;
+    position: absolute;
+    top: 1.5rem;
+    left: 2.1rem;
+    color: var(--cor-5);
+    font-size: 30px;
+    font-weight: bolder;
+    cursor: pointer;
+    user-select: none;
+}
+
+.menu {
+    z-index: 1;
+    position: absolute;
+    height: 100vh;
+    background-color: var(--cor-1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .5s;
+}
+
+.menu-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 30rem;
+    color: var(--cor-5);
+    list-style: none;
+}
+
+.menu-item {
+    text-align: center;
+    padding: 3rem 0;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.menu-item:hover {
+    background-color: var(--cor-2);
+}
+
+.menu-item i {
+    font-size: 20px;
+}
+
+.menu_item-text {
+    margin-top: 1rem;
+}
+
+.textHide {
+    display: none;
+}
+
+.textShow {
+    display: block;
+}
+
+.fechado {
+    width: 6rem;
+}
+
+.aberto {
+    width: 25rem;
+}
+
+/* main */
+main {
+    background-color: var(--cor-5);
+}
+
+.main-container {
+    padding: 3rem 3rem 3rem 10rem;
+    overflow-y: scroll;
+    max-height: 100vh;
+}
+
+.main-titulo, .main-escolhas {
+    text-align: center;
+}
+
+.main-tabela {
+    margin-top: 2rem;
+}
+
+table {
+    width: 100%;
+}
+
+table, tr, th, td {
+    border: 1px solid var(--cor-4);
+    text-align: center;
+}
+
+.escolha-tables {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 5rem;
+}
+
+.botao {
+    text-align: center;
+}
+
+.apagar {
+    width: 100%;
+    padding: .3rem;
+    background-color: var(--cor-3);
+    color: var(--cor-5);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.apagar:hover {
+    background-color: var(--cor-5);
+    color: var(--cor-3);
+}
+
+.selecionar {
+    width: 100%;
+    padding: .3rem;
+    background-color: var(--cor-1);
+    color: var(--cor-5);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.selecionar:disabled {
+    cursor: default;
+    background-color: var(--cor-2);
+    color: black;
+}
+
+.selecionar:disabled:hover {
+    background-color: var(--cor-2);
+    color: black;
+}
+
+.selecionar:hover {
+    background-color: var(--cor-5);
+    color: var(--cor-1);
+}
+
+/* emprestimos */
+
+.mainContent {
+    display: grid;
+    grid-template-columns: 4fr 2fr;
+    gap: 2rem;
+}
+
+.main-formulario form {
+    padding: 1rem;
+    border: 1px solid var(--cor-4);
+    border-radius: 10px;
+    -webkit-box-shadow: 3px 4px 11px -4px rgba(0,0,0,0.75);
+    -moz-box-shadow: 3px 4px 11px -4px rgba(0,0,0,0.75);
+    box-shadow: 3px 4px 11px -4px rgba(0,0,0,0.75);
+    display: flex;
+    flex-direction: column;
+}
+
+.formCampo {
+    margin: 0 0 1rem 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.formCampo input {
+    margin-top: .2rem;
+    padding: .3rem 0 .3rem .2rem;
+}
+
+.formCampo select {
+    padding: .3rem;
+}
+
+input[type="submit"], .enviar {
+    background-color: var(--cor-1);
+    color: var(--cor-5);
+    padding: .5rem 0;
+    border: none;
+    cursor: pointer;
+    transition: .2s;
+}
+
+input[type="submit"]:hover, .enviar:hover {
+    background-color: var(--cor-2);
+}
+
+.enviar {
+    grid-column: 2;
+    width: 10rem;
+    justify-self: right;
+}
