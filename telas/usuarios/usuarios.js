@@ -33,16 +33,7 @@ $("#usuariosSubmit").click(e => {
     }
 
     if(arr.length > 0){
-        $.ajax({
-            url: "telas/usuarios/adicionarUsuario.php",
-            type: "POST",
-            data: formData,
-            processData: false,
-            contentType: false,
-            success: (e) => {
-                $(".main-container").html(e);
-            }
-        })
+        mudarTela("telas/usuarios/adicionarUsuario.php", formData);
     }
 })
 
@@ -51,15 +42,6 @@ btnApagar.forEach(e => {
     e.addEventListener("click", () => {
         let formData = new FormData();
         formData.append("id", e.parentNode.parentNode.children[0].textContent)
-        $.ajax({
-            url: "telas/usuarios/apagarUsuario.php",
-            type: "POST",
-            data: formData,
-            processData: false,
-            contentType: false,
-            success: (e) => {
-                $(".main-container").html(e);
-            }
-         })
+        mudarTela("telas/livros/apagarUsuario.php", formData);
     })
 })

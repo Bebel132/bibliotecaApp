@@ -92,7 +92,9 @@ class App {
             $sql = "DELETE FROM usuario WHERE id=$id";
             $conn->exec($sql);
         } catch(PDOException $e){
-            echo $sql . "<br>" . $e->getMessage();
+            echo "<script>
+                alert('não é possível apagar um usuario que está com livro emprestado')
+            </script>";
         }
         $conn = null;
     }
@@ -198,7 +200,9 @@ class App {
             $sql = "DELETE FROM livro WHERE id=$id";
             $conn->exec($sql);
         } catch(PDOException $e){
-            echo $sql . "<br>" . $e->getMessage();
+            echo "<script>
+                alert('não é possível apagar um livro que está emprestado')
+            </script>";
         }
         $conn = null;
     }

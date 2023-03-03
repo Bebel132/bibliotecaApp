@@ -13,14 +13,28 @@ menuX.addEventListener("click", () => {
     bars.classList.toggle("fa-x")
 })
 
-function mudarTela(url){
-    $.ajax({
-        url: url,
-        success: function (e) {
-            $("main").children().hide();
-            $("main").html(e);
-        }
-    })
+function mudarTela(url, formData = null){
+    if(!formData){
+        $.ajax({
+            url: url,
+            success: function (e) {
+                $("main").children().hide();
+                $("main").html(e);
+            }
+        })
+    } else {
+        $.ajax({
+            url: url,
+            type: "POST",
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: (e) => {
+                $(".main-container").html(e);
+            }
+        })
+    }
+    
 }
 
 $(".usuarios").click(() => {

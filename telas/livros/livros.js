@@ -14,15 +14,15 @@ $("#livrosSubmit").click(e => {
     }
 
     if(arr.length != 0){
-        $.ajax({
-            url: "telas/livros/adicionarLivros.php",
-            type: "POST",
-            data: formData,
-            processData: false,
-            contentType: false,
-            success: (e) => {
-                $(".main-container").html(e);
-            }
-        })
+        mudarTela("telas/livros/adicionarLivros.php", formData)
     }
 });
+
+btnApagar = document.querySelectorAll(".apagar");
+btnApagar.forEach(e => {
+    e.addEventListener("click", () => {
+        let formData = new FormData();
+        formData.append("id", e.parentNode.parentNode.children[0].textContent)
+        mudarTela("telas/livros/apagarLivro.php", formData);
+    })
+})
