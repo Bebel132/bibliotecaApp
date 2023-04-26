@@ -10,6 +10,8 @@ menuX.addEventListener("click", () => {
         e.classList.toggle("textShow");
     })
 
+    document.querySelector(".sair").classList.toggle("textShow");
+
     bars.classList.toggle("fa-x")
 })
 
