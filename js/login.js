@@ -1,8 +1,8 @@
 let loginBtn = document.querySelectorAll(".loginBtn");
 loginBtn.forEach(e => {
     e.addEventListener("click", () => { 
-        if(e.id == "usuarioComum"){
-
+        if(e.id == "acervo"){
+            window.location.href = "acervo.html";
         } else if(e.id == "membroBiblioteca"){
             document.querySelector(".login-form").classList.toggle("displayNone");
             document.querySelector(".loginBtn-container").classList.toggle("displayNone");
