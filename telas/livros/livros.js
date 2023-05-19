@@ -26,12 +26,3 @@ btnApagar.forEach(e => {
         mudarTela("telas/livros/apagarLivro.php", formData);
     })
 })
-
-btnRegistros = document.querySelectorAll(".registros");
-btnRegistros.forEach(e => {
-    e.addEventListener("click", () => {
-        let formData = new FormData();
-        formData.append("id", e.parentNode.parentNode.children[0].textContent)
-        mudarTela("telas/livros/registros.php", formData);
-    })
-})

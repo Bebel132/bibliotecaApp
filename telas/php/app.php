@@ -98,22 +98,12 @@ class App {
         }
         $conn = null;
     }
-  
-    public function adicionarEmprestimo($conn, $idLocador, $idLivro, $dataEntrega){
-        try {
-            $sql = "INSERT INTO emprestimo(idLocador, idLivro, dataEntrega, estado) VALUES ('$idLocador', '$idLivro', '$dataEntrega', 'ativo')";
-            $conn->exec($sql);
-        } catch(PDOException $e) {
-            echo $sql . "<br>" . $e->getMessage();
-        }
-    }
 
     public function verEmprestimos($conn){
         try {
-            $sql = "SELECT emprestimo.id, nomeCompleto, titulo, funcao, turma, dataEntrega, telefone, estado from emprestimo INNER JOIN usuario on usuario.id = emprestimo.idLocador INNER JOIN livro on livro.id = emprestimo.idLivro";
+            $sql = "SELECT emprestimo.id, nomeCompleto, titulo, funcao, turma, dataEntrega, telefone from emprestimo INNER JOIN usuario on usuario.id = emprestimo.idLocador INNER JOIN livro on livro.id = emprestimo.idLivro";
             $arr = $conn->query($sql);
             while($row = $arr->fetch()){
-                if($row['estado'] == "ativo"){
                 echo "
                     <tr>
                         <td>".$row['id']."</td>
@@ -125,7 +115,6 @@ class App {
                         <td>".$row['telefone']."</td>
                         <td class='botao'><button class='apagar'>apagar</button></td>
                     </tr>";
-                }
             }
         } catch(PDOException $e){
             echo $sql . "<br>" . $e->getMessage();
@@ -133,9 +122,18 @@ class App {
         $conn = null;
     }
 
+    public function adicionarEmprestimo($conn, $idLocador, $idLivro, $dataEntrega){
+        try {
+            $sql = "INSERT INTO emprestimo(idLocador, idLivro, dataEntrega) VALUES ('$idLocador', '$idLivro', '$dataEntrega')";
+            $conn->exec($sql);
+        } catch(PDOException $e) {
+            echo $sql . "<br>" . $e->getMessage();
+        }
+    }
+    
     public function apagarEmprestimo($conn, $id){
         try{
-            $sql = "UPDATE emprestimo SET estado='entregue' WHERE id=$id";
+            $sql = "DELETE FROM emprestimo WHERE id=$id";
             $conn->exec($sql);
         } catch(PDOException $e){
             echo $sql . "<br>" . $e->getMessage();
@@ -167,7 +165,6 @@ class App {
                             <td>".$row['edicao']."</td>
                             <td>".$row['genero']."</td>
                             <td>".$row['editora']."</td>
-                            <td class='botao'><button class='registros'>registros</button></td>
                             <td class='botao'><button class='apagar'>apagar</button></td>
                         </tr>";
                 }
@@ -196,25 +193,6 @@ class App {
         }
         
         $conn = null;
-    }
-
-    public function verLivroRegistros($conn, $idLivro){
-        try{
-            $sql = "SELECT nomeCompleto, dataEntrega FROM emprestimo INNER JOIN usuario ON usuario.id = emprestimo.idLocador WHERE idLivro = $idLivro";
-            $arr = $conn->query($sql);
-            while($row = $arr->fetch()){
-                echo "
-                <tr>
-                    <td>".$row['nomeCompleto']."</td>
-                    <td>".$row['dataEntrega']."</td>
-                </tr>";
-            }
-        } catch(PDOException $e){
-            echo $sql . "<br>" . $e->getMessage();
-        }
-        $conn = null;
-        ;
-
     }
 
     public function apagarLivro($conn, $id){
