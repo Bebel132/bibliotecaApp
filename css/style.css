@@ -60,6 +60,12 @@ a {
     padding: 3rem 0;
     cursor: pointer;
     transition: .2s;
+    width: 100%;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .menu-item:hover {
@@ -68,10 +74,12 @@ a {
 
 .menu-item i {
     font-size: 20px;
+    user-select: none;
 }
 
 .menu_item-text {
     margin-top: 1rem;
+    user-select: none;
 }
 
 .textHide {
@@ -88,6 +96,11 @@ a {
 
 .aberto {
     width: 25rem;
+}
+
+.sair {
+    text-align: center;
+    margin-top: 4rem;
 }
 
 /* main */
@@ -124,41 +137,41 @@ table, tr, th, td {
     grid-gap: 5rem;
 }
 
-.tabela-registros {
-    width: 50%;
-    margin: auto;
-}
-
 .botao {
     text-align: center;
 }
+
 .apagar {
     width: 100%;
     padding: .3rem;
     background-color: var(--cor-3);
     color: var(--cor-5);
     border: none;
+    border-radius: 5px;
     cursor: pointer;
     transition: .2s;
 }
+
 .apagar:hover {
     background-color: var(--cor-5);
     color: var(--cor-3);
 }
 
-.selecionar, .registros {
+.selecionar {
     width: 100%;
     padding: .3rem;
     background-color: var(--cor-1);
     color: var(--cor-5);
     border: none;
+    border-radius: 5px;
     cursor: pointer;
     transition: .2s;
 }
 
-.registros:hover {
-    background-color: var(--cor-5);
-    color: var(--cor-2);
+.selecionar:disabled {
+    cursor: default;
+    background-color: var(--cor-2);
+    color: black;
 }
 
 .selecionar:disabled:hover {

@@ -27,13 +27,12 @@ CREATE TABLE `emprestimo` (
   `idLocador` int DEFAULT NULL,
   `idLivro` int DEFAULT NULL,
   `dataEntrega` date NOT NULL,
-  `estado` varchar(8) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `idLocador` (`idLocador`),
   KEY `idLivro` (`idLivro`),
   CONSTRAINT `emprestimo_ibfk_1` FOREIGN KEY (`idLocador`) REFERENCES `usuario` (`id`),
   CONSTRAINT `emprestimo_ibfk_2` FOREIGN KEY (`idLivro`) REFERENCES `livro` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,7 +41,7 @@ CREATE TABLE `emprestimo` (
 
 LOCK TABLES `emprestimo` WRITE;
 /*!40000 ALTER TABLE `emprestimo` DISABLE KEYS */;
-INSERT INTO `emprestimo` VALUES (1,1,1,'2023-04-25','entregue');
+INSERT INTO `emprestimo` VALUES (3,7,3,'2023-02-24');
 /*!40000 ALTER TABLE `emprestimo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -63,7 +62,7 @@ CREATE TABLE `livro` (
   `quantidade` int NOT NULL,
   `genero` varchar(30) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -72,7 +71,7 @@ CREATE TABLE `livro` (
 
 LOCK TABLES `livro` WRITE;
 /*!40000 ALTER TABLE `livro` DISABLE KEYS */;
-INSERT INTO `livro` VALUES (1,'O menino do pijama listrado','John Boyne','primeira','seguinte','2007-04-02',1,'drama');
+INSERT INTO `livro` VALUES (3,'kama sutra','sdasdad','asdasdas','dasdas','1212-12-12',123,'asasdas'),(4,'exemplo','exemplo','exemplo','exemplo','1212-12-12',2,'exemplo'),(5,'jacinto ','cucabeludo','foda','minha jeba','1234-12-12',5,'romance');
 /*!40000 ALTER TABLE `livro` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -92,7 +91,7 @@ CREATE TABLE `usuario` (
   `nomeResp` varchar(125) DEFAULT NULL,
   `telResp` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -101,7 +100,7 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES (1,'Emanuel Ferreira Batista','aluno','3info','85 99863-8971','Francileide Ferreira Veras','85 9668-1787');
+INSERT INTO `usuario` VALUES (1,'Alcides','biologia',NULL,'seilá',NULL,NULL),(7,'Emanuel Ferreira Batista','aluno','3info','não lembro','minha mãe','também n');
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -114,4 +113,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-04-18 20:07:26
+-- Dump completed on 2023-02-21 16:12:58
