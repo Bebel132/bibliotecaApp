@@ -165,6 +165,7 @@ class App {
                             <td>".$row['edicao']."</td>
                             <td>".$row['genero']."</td>
                             <td>".$row['editora']."</td>
+                            <td class='botao'><button class='informacoes'>informações</button></td>
                             <td class='botao'><button class='apagar'>apagar</button></td>
                         </tr>";
                 }
@@ -205,6 +206,23 @@ class App {
             </script>";
         }
         $conn = null;
+    }
+
+    public function verLivrosRegistros($conn, $idLivro){
+        try {
+            $sql = "SELECT nomeCompleto, estado, dataEntrega FROM emprestimo INNER JOIN usuario ON emprestimo.idLocador=usuario.id WHERE idLivro = $idLivro";
+            $arr = $conn->query($sql);
+            while($row = $arr->fetch()){
+                echo "
+                    <tr>
+                        <td>".$row['nomeCompleto']."</td>
+                        <td>".$row['estado']."</td>
+                        <td>".$row['dataEntrega']."</td>
+                    </tr>";
+            }
+        } catch(PDOException $e){
+            echo $sql . "<br>" . $e->getMessage();
+        }
     }
 }
 ?>
