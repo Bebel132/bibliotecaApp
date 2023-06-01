@@ -141,7 +141,7 @@ table, tr, th, td {
     text-align: center;
 }
 
-.apagar {
+.apagar, .informacoes {
     width: 100%;
     padding: .3rem;
     background-color: var(--cor-3);
@@ -150,6 +150,10 @@ table, tr, th, td {
     border-radius: 5px;
     cursor: pointer;
     transition: .2s;
+}
+
+.informacoes {
+    background-color: var(--cor-1);
 }
 
 .apagar:hover {
