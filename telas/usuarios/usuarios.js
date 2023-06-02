@@ -42,6 +42,7 @@ btnApagar.forEach(e => {
     e.addEventListener("click", () => {
         let formData = new FormData();
         formData.append("id", e.parentNode.parentNode.children[0].textContent)
-        mudarTela("telas/livros/apagarUsuario.php", formData);
+        formData.append("nomeLivro", e.parentNode.parentNode.children[1].textContent)
+        mudarTela("telas/usuarios/apagarUsuario.php", formData);
     })
 })

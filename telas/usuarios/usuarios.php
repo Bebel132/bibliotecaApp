@@ -5,16 +5,6 @@
     <div class="main-titulo">
         <h1>Pessoas Cadastradas</h1>
     </div>
-    <div class="main-escolhas">
-        <form action="">
-            <label for="alunos">alunos: </label>
-            <input type="checkbox" name="alunos" id="">
-            <label for="professores">professores: </label>
-            <input type="checkbox" name="professores" id="">
-            <label for="gestao">gestão: </label>
-            <input type="checkbox" name="gestao" id="">
-        </form>
-    </div>
     <div class="mainContent">
         <div class="main-tabela">
             <table>
