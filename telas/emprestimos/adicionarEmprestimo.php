@@ -1,11 +1,10 @@
 <?php
 require("../php/connect.php");
 $arr = [];
-foreach($_POST as $i){
-    array_push($arr, $i);
-}
-$app->adicionarEmprestimo($conn, $arr[0], $arr[1], $arr[2]);
+$app->adicionarEmprestimo($conn, $_POST['idUsuario'], $_POST['idLivro'], $_POST['dataEntrega']);
 echo "<script>
     mudarTela('telas/emprestimos/emprestimos.php')
-</script>";
+</script>";foreach($_POST as $i){
+    array_push($arr, $i);
+}
 ?>

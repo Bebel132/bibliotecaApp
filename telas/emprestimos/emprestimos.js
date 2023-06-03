@@ -3,30 +3,29 @@ $("#emprestimosSubmit").click(e => {
     let inputsE = document.querySelectorAll(".inputsE");
     let arr = [];
     let formData = new FormData();
-    for(let i=0; i<inputsE.length; i++){
-        if(!inputsE[i].disabled){
-            if(inputsE[i].value.trim().length != 0){
-                arr.push(inputsE[i].value);
-                formData.append(inputsE[i].id, inputsE[i].value)
-            } else {
-                alert("preencha todos os campos obrigatórios");
-                return;
-            }
+    for(e of inputsE){
+        if(e.value.trim() == ""){
+            alert("preencha todos os campos!");
+            return;
+        } else {
+            arr.push(e)
         }
     }
 
-    if(arr.length > 0){
-        $.ajax({
-            url: "telas/emprestimos/emprestimoEscolha.php",
-            type: "POST",
-            data: formData,
-            processData: false,
-            contentType: false,
-            success: (e) => {
-                $(".main-container").html(e);
-            }
-        })
-    }
+    arr.forEach(e => {
+        formData.append(e.id, e.value)
+    })
+
+    $.ajax({
+        url: "telas/emprestimos/emprestimoEscolha.php",
+        type: "POST",
+        data: formData,
+        processData: false,
+        contentType: false,
+        success: (e) => {
+            $(".main-container").html(e);
+        }
+     })
 })
 
 btnApagar = document.querySelectorAll(".apagar");

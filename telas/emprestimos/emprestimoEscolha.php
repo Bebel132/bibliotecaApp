@@ -1,7 +1,7 @@
 <?php
 require("../php/connect.php");
 echo "  <script>
-            let dataEntrega = '".$_POST["dataEntrega"]."';
+            dataEntrega = '".$_POST["dataEntrega"]."';
         </script>";
 ?>
 <div class="escolha-tables">
