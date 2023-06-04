@@ -98,11 +98,6 @@ a {
     width: 25rem;
 }
 
-.sair {
-    text-align: center;
-    margin-top: 4rem;
-}
-
 /* main */
 main {
     background-color: var(--cor-5);
